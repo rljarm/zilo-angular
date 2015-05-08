@@ -1,0 +1,45 @@
+h3 {{}} Listing
+
+.row
+  .col-xs-2
+    form(name='areaForm', novalidate)
+      .form-group
+        label(for='street') Street Address
+        input.form-control#street(type='text', name='street', ng-model='listing.street', required)
+      .form-group
+        label(for='city') City
+        input.form-control#city(type='text', name='city', ng-model='listing.city', required)
+      .form-group
+        label(for='state') State
+        input.form-control#state(type='text', name='state', placeholder='Alaska', ng-model='listing.state', required)
+      .form-group
+        label(for='zip') Zip Code
+        input.form-control#zip(type='text', name='zip', ng-model='listing.zip', required)
+      .form-group
+        label(for='price') List Price
+        input.form-control#price(type='number', name='price', ng-model='listing.price', required)
+      .form-group
+        label(for='beds') Number of Bedrooms
+        input.form-control#beds(type='number', name='beds', ng-model='listing.beds', required)
+      .form-group
+        label(for='baths') Number of Bathrooms
+        input.form-control#baths(type='number', name='baths', ng-model='listing.baths', required)
+      .form-group
+        label(for='sqft') Square Footage
+        input.form-control#sqft(type='number', name='sqft', ng-model='listing.sqft', required)
+      .form-group
+        label(for='photo') Listing Photo
+        img.img-responsive.img-thumbnail.form-control#photo(name='photo', ng-model='listing.photo', ng-src='{{photo}}')
+      .form-group
+        button.btn.btn-success(ng-hide='state==="listings.edit"', type='submit', ng-click='create(listing)') Create Listing
+        button.btn.btn-warning(ng-show='state==="listings.edit"', type='submit', ng-click='edit(listing)') Edit Listing
+  .col-xs-4
+    form
+      .form-group
+        button.webButton.btn.btn-info(ng-click='camOn()', ng-hide='webcamOn') Webcam On
+        //- img#photo(ng-src='{{listing.photo}}')
+  .col-xs-4
+        button.webButton.btn.btn-danger(ng-click='camOff()', ng-show='webcamOn') Webcam Off
+        button.webButton.btn.btn-primary(ng-click='takeSnapshot()', ng-show='webcamOn') Take Snapshot
+        #camera
+    

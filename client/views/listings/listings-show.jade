@@ -1,0 +1,25 @@
+h3 Listing Details
+.row
+  .col-xs-3
+    table.table.table-striped
+      tbody
+        tr
+          td Address: &nbsp; {{listing.addrString}}
+        tr
+          td Price: &nbsp; {{listing.price | currency}}
+        tr
+          td Number of Beds: &nbsp; {{listing.beds}}
+        tr
+          td Number of Baths: &nbsp; {{listing.baths}}
+        tr
+          td Square Footage: &nbsp; {{listing.sqft}} &nbsp; SQFT
+        tr
+          td Date Added: &nbsp; {{listing.createdAt | date: 'yyyy-MM-dd' }}
+        tr
+          td(ng-show='activeUser', ng-click='destroy(listing)'): button.btn-md.btn-danger Delete Listing
+        tr
+          td(ng-show='activeUser', ng-click='edit(listing)'): button.btn-md.btn-warning Edit Listing
+  .col-xs-2
+    img#showPagePhoto(ng-src='{{listing.photo}}')
+  .col-xs-7
+    #showPageMap
